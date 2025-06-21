@@ -1,4 +1,5 @@
 import { MainNav } from "@/components/main-nav";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export default function MainLayout({
   children,
@@ -6,13 +7,11 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen">
-      <div className="hidden md:flex w-64 flex-col">
-        <MainNav />
-      </div>
+    <SidebarProvider>
+      <MainNav />
       <main className="flex-1 bg-background p-4 sm:p-6 md:p-8">
         {children}
       </main>
-    </div>
+    </SidebarProvider>
   );
 }
